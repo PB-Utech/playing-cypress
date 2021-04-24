@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/dranophoenix/playing-cypress#readme",
   "devDependencies": {
-    "cypress": "^7.1.0"
+    "cypress": "^7.1.0",
+    "cypress-file-upload": "^5.0.6"
   }
 }
