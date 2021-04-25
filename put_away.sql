@@ -1,10 +1,15 @@
 /*IN ONE QUERY*/
-select 
-upload_service.order_no, unload.product_no, 
-unload.revise_unit_desc, unload.revise_qty,
+SELECT 
+upload_service.order_no, 
+unload.product_no, 
+unload.revise_unit_desc, 
+CASE WHEN split_lot_flag = 'Y' THEN split_log.split_qty::integer else unload.revise_qty::integer end as QTY,
 concat('',split_log.lot_no) as lotno,
 concat('',split_log.serial_no) as serialno,
-concat(upload_service.order_no,';',unload.product_no,';',split_log.lot_no,';',split_log.serial_no) as qr_product
+concat(upload_service.order_no,';',unload.product_no,';',split_log.lot_no,';',split_log.serial_no) as qr_product,
+unload.revise_qty::integer as unload_qty, 
+split_log.split_qty::integer as split_qty
+
 from act_trn_whop_unload as unload
 
 LEFT JOIN act_trn_whop_unload_split_log as split_log
@@ -22,9 +27,12 @@ order by product_no
 /* SEPARATE Query Split and Not-Split */
 
 select 
-upload_service.order_no, unload.product_no, 
-unload.revise_unit_desc, unload.revise_qty,
-split_log.lot_no, split_log.serial_no,
+upload_service.order_no, 
+unload.product_no, 
+unload.revise_unit_desc, 
+split_log.split_qty::integer,
+split_log.lot_no, 
+split_log.serial_no,
 concat(upload_service.order_no,';',unload.product_no,';',split_log.lot_no,';',split_log.serial_no) as qr_product
 
 from act_trn_whop_unload as unload
@@ -44,7 +52,7 @@ order by product_no
 
 select 
 upload_service.order_no, unload.product_no, 
-unload.revise_unit_desc, unload.revise_qty,
+unload.revise_unit_desc, unload.revise_qty::integer,
 unload.lot_no,
 concat(upload_service.order_no,';',unload.product_no,';',unload.lot_no,';') as qr_product
 
