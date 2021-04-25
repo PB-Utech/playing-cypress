@@ -6,7 +6,6 @@ describe("PB Robot do my put away work", function () {
       const put_away = CSVToArray(fc, ",");
       let i = -1;
       for (const data of put_away) {
-        cy.window().should("have.property", "appReady", true);
         i++;
         if (i == 0) {
           continue;
@@ -28,19 +27,19 @@ describe("PB Robot do my put away work", function () {
         console.log(data);
         console.log(qr_product);
 
-        // cy.wait(1000);
+        cy.wait(100);
         // Location
         cy.get(
           ".content .card-body .row > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > input"
         ).type(location + "{enter}");
-        cy.get("button.swal-button--confirm").click();
+        cy.root().find("button.swal-button--confirm").click();
 
         // QR product
         cy.get(
           ".content .card-body .row > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > input"
         ).type(qr_product + "{enter}", { delay: 30 });
 
-        cy.get(".swal-footer .swal-button--confirm").click({ timeout: 5000 });
+        cy.root().find(".swal-footer .swal-button--confirm").click();
 
         // QTY
         cy.get(
@@ -57,12 +56,11 @@ describe("PB Robot do my put away work", function () {
 
         //   SAVE
         cy.get("[type=btnSave]").click();
-        cy.get("button.swal-button--confirm").click({
-          force: true,
-        });
-        cy.get("button.swal-button--confirm").click({ force: true });
+        cy.root().find("button.swal-button--confirm").click();
+        cy.root().find("button.swal-button--confirm").click({ force: true });
         // cy.wait(500);
-        cy.get("button.swal-button--confirm").click({ force: true });
+        cy.root().find("button.swal-button--confirm").click({ force: true });
+        cy.reload();
       }
       //   console.log(put_away);
     });
