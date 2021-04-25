@@ -55,10 +55,10 @@ describe("PB Robot do my put away work", function () {
           .click();
 
         //   SAVE
-        cy.get("[type=btnSave]").click();
+        cy.root().find(".card-footer .btn-success").click();
         cy.root().find("button.swal-button--confirm").click();
         cy.root().find("button.swal-button--confirm").click({ force: true });
-        // cy.wait(500);
+        cy.wait(1000);
         cy.root().find("button.swal-button--confirm").click({ force: true });
         cy.reload();
       }
@@ -122,7 +122,9 @@ function CSVToArray(strData, strDelimiter) {
       // We found a non-quoted value.
       var strMatchedValue = arrMatches[3];
     }
-
+    if (typeof strMatchedValue === "undefined") {
+      strMatchedValue = "";
+    }
     // Now that we have our value string, let's add
     // it to the data array.
     arrData[arrData.length - 1].push(strMatchedValue);
