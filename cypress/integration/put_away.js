@@ -1,9 +1,12 @@
 describe("PB Robot do my put away work", function () {
   it("should fill put away form for me", function () {
+    const location = "W1000000";
+    cy.visit("http://localhost:8080/#/ScanQRCode/PutAway");
     cy.fixture("putaway.csv").then(function (fc) {
       const put_away = CSVToArray(fc, ",");
       let i = -1;
       for (const data of put_away) {
+        cy.window().should("have.property", "appReady", true);
         i++;
         if (i == 0) {
           continue;
@@ -11,9 +14,9 @@ describe("PB Robot do my put away work", function () {
         if (i == put_away.length - 1) {
           break;
         }
-        if (i == 2) {
-          break;
-        }
+        // if (i == 2) {
+        //   break;
+        // }
         const order_no = data[0];
         const product_no = data[1];
         const revise_unit_desc = data[2];
@@ -21,9 +24,45 @@ describe("PB Robot do my put away work", function () {
         const lot_no = data[4];
         const serial_no = data[5];
 
-        const qr_product = `${order_no};${product_no};${lot_no};${serial_no}`;
+        let qr_product = `${order_no};${product_no};${lot_no};${serial_no}{enter}`;
         console.log(data);
         console.log(qr_product);
+
+        // cy.wait(1000);
+        // Location
+        cy.get(
+          ".content .card-body .row > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > input"
+        ).type(location + "{enter}");
+        cy.get("button.swal-button--confirm").click();
+
+        // QR product
+        cy.get(
+          ".content .card-body .row > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > input"
+        ).type(qr_product + "{enter}", { delay: 30 });
+
+        cy.get(".swal-footer .swal-button--confirm").click({ timeout: 5000 });
+
+        // QTY
+        cy.get(
+          ".content .card-body .row > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) input"
+        ).type(revise_qty);
+
+        // UNIT
+        cy.get(
+          ".content .card-body .row > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) input"
+        ).click();
+        cy.get(".el-scrollbar > .el-select-dropdown__wrap li")
+          .contains(revise_unit_desc)
+          .click();
+
+        //   SAVE
+        cy.get("[type=btnSave]").click();
+        cy.get("button.swal-button--confirm").click({
+          force: true,
+        });
+        cy.get("button.swal-button--confirm").click({ force: true });
+        // cy.wait(500);
+        cy.get("button.swal-button--confirm").click({ force: true });
       }
       //   console.log(put_away);
     });
