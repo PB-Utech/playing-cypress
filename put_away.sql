@@ -13,7 +13,7 @@ where unload.order_Id
 in (
 	select order_id from act_trn_order_input_upload as iu where order_no = 'ORD202104200001'
 ) and split_lot_flag = 'Y'
-
+order by product_no
 
 
 
