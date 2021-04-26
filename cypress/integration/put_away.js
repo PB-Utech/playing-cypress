@@ -37,9 +37,12 @@ describe("PB Robot do my put away work", function () {
         // QR product
         cy.get(
           ".content .card-body .row > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > input"
-        ).type(qr_product + "{enter}", { delay: 30 });
+        ).type(qr_product + "{enter}");
 
-        cy.root().find(".swal-footer .swal-button--confirm").click();
+        cy.root()
+          .find(".swal-footer .swal-button--confirm")
+          .should("be.visible")
+          .click();
 
         // QTY
         cy.get(
@@ -56,11 +59,15 @@ describe("PB Robot do my put away work", function () {
 
         //   SAVE
         cy.root().find(".card-footer .btn-success").click();
-        cy.root().find("button.swal-button--confirm").click();
-        cy.root().find("button.swal-button--confirm").click({ force: true });
-        cy.wait(1000);
-        cy.root().find("button.swal-button--confirm").click({ force: true });
-        cy.reload();
+        cy.root()
+          .find("button.swal-button--confirm")
+          .should("be.visible")
+          .click();
+        // cy.wait(1000); // use this to pause on last confirmation box
+        cy.root()
+          .find("button.swal-button--confirm")
+          .should("be.visible")
+          .click({ force: true });
       }
       //   console.log(put_away);
     });
