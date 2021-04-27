@@ -1,7 +1,13 @@
 describe("PB Robot do my put away work", function () {
   it("should fill put away form for me", function () {
+    // const location = "W1-000000";
+    // const url = "https://203.150.13.78:8443/glop/#/ScanQRCode/PutAway"
+
     const location = "W1000000";
-    cy.visit("http://localhost:8080/#/ScanQRCode/PutAway");
+    const url = "http://localhost:8080/#/ScanQRCode/PutAway";
+    //////////////////////////////////////////
+    cy.visit(url);
+
     cy.fixture("putaway.csv").then(function (fc) {
       const put_away = CSVToArray(fc, ",");
       let i = -1;
@@ -10,8 +16,8 @@ describe("PB Robot do my put away work", function () {
         if (i == 0) {
           continue;
         }
-        if (i == put_away.length - 1) {
-          break;
+        if (1 == data.length) {
+          continue;
         }
         // if (i == 2) {
         //   break;
@@ -41,8 +47,13 @@ describe("PB Robot do my put away work", function () {
 
         cy.root()
           .find(".swal-footer .swal-button--confirm")
-          .should("be.visible")
-          .click();
+          .should("be.visible");
+        cy.root()
+          .find(".swal-footer .swal-button--confirm")
+          .should("have.text", "OK");
+        cy.root().find(".swal-icon").should("be.visible");
+        cy.wait(800); // wait for animation
+        cy.root().find(".swal-footer .swal-button--confirm").click();
 
         // QTY
         cy.get(
@@ -60,14 +71,20 @@ describe("PB Robot do my put away work", function () {
         //   SAVE
         cy.root().find(".card-footer .btn-success").click();
         cy.root()
-          .find("button.swal-button--confirm")
-          .should("be.visible")
-          .click();
+          .find(".swal-footer .swal-button--confirm")
+          .should("be.visible");
+        cy.root()
+          .find(".swal-footer .swal-button--confirm")
+          .should("have.text", "OK");
+        cy.root().find(".swal-footer .swal-button--confirm").click();
         // cy.wait(1000); // use this to pause on last confirmation box
         cy.root()
-          .find("button.swal-button--confirm")
-          .should("be.visible")
-          .click({ force: true });
+          .find(".swal-footer .swal-button--confirm")
+          .should("be.visible");
+        cy.root()
+          .find(".swal-footer .swal-button--confirm")
+          .should("have.text", "OK");
+        cy.root().find(".swal-footer .swal-button--confirm").click();
       }
       //   console.log(put_away);
     });
