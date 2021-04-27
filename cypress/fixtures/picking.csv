@@ -1,0 +1,4 @@
+﻿Customer name,Product no,Product Name,Lot No,Serial No,Picking List No,Manufacturing Date,Expired Date,Product status,WH Location,Unit,Book Qty,Ref Cust Order No,Cust ref no.,Cust Remark,Required Invoice,Booking Mode
+Peaberry Ltd.,MC00032,Astoria Tanya-R 1G - Black,,,,10/03/2021,10/03/2022,พร้อมใช้,W1000000,EA,1,,,,N,FIFO
+Peaberry Ltd.,MC00038,Astoria Core 200 2G - White,,,,10/03/2021,10/03/2022,พร้อมใช้,W1000000,EA,1,,,,N,FIFO
+Peaberry Ltd.,MC00058,เครื่องชง Slayer Steam EP 2G,rwerwer,rerw,rer,08/02/2021,18/03/2023,พร้อมใช้,W1-010202,EA,2,,,,N,FIFO
