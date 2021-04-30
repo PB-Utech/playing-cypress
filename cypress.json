@@ -1,5 +1,6 @@
 {
   "chromeWebSecurity": false,
   "redirectionLimit": 300,
-  "defaultCommandTimeout": 10000
+  "defaultCommandTimeout": 10000,
+  "numTestsKeptInMemory": 20
 }
