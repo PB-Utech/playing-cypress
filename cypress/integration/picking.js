@@ -1,9 +1,9 @@
 describe("PB Robot do my picking work", function () {
   it("should fill picking form for me", function () {
-    // const url = "https://203.150.13.78:8443/glop/#/ScanQRCodePicking/Index"
+    const url = "https://203.150.13.78:8443/glop/#/ScanQRCodePicking/Index";
 
-    const order_no = "ORD202104270001";
-    const url = "http://localhost:8080/#/ScanQRCodePicking/Index";
+    const order_no = "ORD202105240002";
+    //const url = "http://localhost:8080/#/ScanQRCodePicking/Index";
     //////////////////////////////////////////
     cy.visit(url);
 
@@ -24,6 +24,7 @@ describe("PB Robot do my picking work", function () {
         const location = data[9];
         const revise_unit_desc = data[10];
         const revise_qty = data[11];
+        const status = data[8];
 
         let qr_product = `${order_no};${product_no};${lot_no};${serial_no}{enter}`;
         console.log(data);
@@ -56,6 +57,14 @@ describe("PB Robot do my picking work", function () {
         ).click();
         cy.get(".el-scrollbar > .el-select-dropdown__wrap li")
           .contains(revise_unit_desc)
+          .click();
+
+        // STATUS
+        cy.get(
+          ".card-body > .row > div:nth-child(2) > div:nth-child(6) .el-select"
+        ).click();
+        cy.get(".el-scrollbar > .el-select-dropdown__wrap li")
+          .contains(status)
           .click();
 
         //   SAVE

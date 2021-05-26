@@ -1,4 +1,94 @@
 ﻿Customer name,Product no,Product Name,Lot No,Serial No,Picking List No,Manufacturing Date,Expired Date,Product status,WH Location,Unit,Book Qty,Ref Cust Order No,Cust ref no.,Cust Remark,Required Invoice,Booking Mode
-Peaberry Ltd.,MC00032,Astoria Tanya-R 1G - Black,,,,10/03/2021,10/03/2022,พร้อมใช้,W1000000,EA,1,,,,N,FIFO
-Peaberry Ltd.,MC00038,Astoria Core 200 2G - White,,,,10/03/2021,10/03/2022,พร้อมใช้,W1000000,EA,1,,,,N,FIFO
-Peaberry Ltd.,MC00058,เครื่องชง Slayer Steam EP 2G,rwerwer,rerw,rer,08/02/2021,18/03/2023,พร้อมใช้,W1-010202,EA,2,,,,N,FIFO
+Peaberry Ltd.,RB00121,กาแฟคั่ว Yemen Saleh Alsweadi (Nano Lot) Natural 100g,PR24821,PR24821,,01/05/2021,30/04/2024,จอง,W1999999,BAG,1,SOCD21001566,page,,N,FIFO
+Peaberry Ltd.,RB00006,P2 Blend 250g-Medium Dark Roast-250 g,PR24896,PR24896,,01/05/2021,30/04/2024,จอง,W1999999,BAG,20,SOTP21001005,NYW21-050273,,N,FIFO
+Peaberry Ltd.,RB00022,P3 Blend 250g-Dark Roast-250 g,PR24856,PR24856,,01/05/2021,30/04/2024,จอง,W1999999,BAG,59,SOTP21001005,NYW21-050273,,N,FIFO
+Peaberry Ltd.,RB00022,P3 Blend 250g-Dark Roast-250 g,PR24873,PR24873,,01/05/2021,30/04/2024,จอง,W1999999,BAG,30,SOTP21001005,NYW21-050273,,N,FIFO
+Peaberry Ltd.,RB00022,P3 Blend 250g-Dark Roast-250 g,PR24892,PR24892,,01/05/2021,30/04/2024,จอง,W1999999,BAG,11,SOTP21001005,NYW21-050273,,N,FIFO
+Peaberry Ltd.,PS00121,Monin Syrup Passion Fruit 700ml-Syrup-700 ml,231016,231016,,12/03/2021,16/10/2023,จอง,W1999999,BOT,2,SOTP21001004,NYW21-050272,,N,FIFO
+Peaberry Ltd.,PS00033,ผงปั่นวนิลา 500g-Powder-500 g,200421,200421,,01/01/2020,21/04/2020,จอง,W1999999,BAG,1,SOCD21001573,web10087,,N,FIFO
+Peaberry Ltd.,PS00144,Monin Syrup Vanilla 700ml-Syrup-700 ml,231217,231217,,12/03/2021,17/12/2023,จอง,W1999999,BOT,24,SOTP21001015,EFS2021/825,,N,FIFO
+Peaberry Ltd.,PS00057,Monin Sauce L'Artiste Caramel 150ml-Sauce-150 ml,220429,220429,,12/03/2021,29/04/2022,จอง,W1999999,BOT,6,SOTP21001005,NYW21-050273,,N,FIFO
+Peaberry Ltd.,PS00026,ผงช๊อคโกแลตเข้มข้น 360g-Powder-360 g,210410,210410,,10/04/2021,09/04/2024,จอง,W1999999,BAG,1,SOCD21001573,web10087,,N,FIFO
+Peaberry Ltd.,RB00006,P2 Blend 250g-Medium Dark Roast-250 g,PR24896,PR24896,,01/05/2021,30/04/2024,จอง,W1999999,BAG,1,SOCD21001573,web10087,,N,FIFO
+Peaberry Ltd.,CN00006,Urnex Cafiza Powder 125g.-Chemical Cleaning-Powder,beginning_20210501,beginning_20210501,,01/05/2021,30/04/2024,จอง,W1999999,EA,5,SOTP21001013,PO2021050011,,N,FIFO
+Peaberry Ltd.,PS00046,Monin Puree Strawberry 1L-Puree-1 L,221028,221028,,12/03/2021,28/10/2022,จอง,W1999999,BOT,8,SOTP21001004,NYW21-050272,,N,FIFO
+Peaberry Ltd.,PS00025,ผงโกโก้เข้มข้น 1Kg-Powder-1 kg,210326,210326,,26/03/2021,25/03/2024,จอง,W1999999,BAG,4,SOCD21001575,web10078,,N,FIFO
+Peaberry Ltd.,RB00100,กาแฟคั่ว Yemen Moshin Alofairi 100g,PR24822,PR24822,,01/05/2021,30/04/2024,จอง,W1999999,BAG,1,SOCD21001566,page,,N,FIFO
+Peaberry Ltd.,RB00015,House Blend 250g-Medium Roast-250 g,PB0109,PB0109,,01/05/2021,30/04/2024,จอง,W1999999,BAG,20,SOTP21001004,NYW21-050272,,N,FIFO
+Peaberry Ltd.,RB00027,Massimo Blend 500g (No Logo)-Dark Roast-500 g,PR24775,PR24775,,01/05/2021,30/04/2024,จอง,W1999999,BAG,28,SOCD21001569,,,N,FIFO
+Peaberry Ltd.,RB00027,Massimo Blend 500g (No Logo)-Dark Roast-500 g,PR24913,PR24913,,01/05/2021,30/04/2024,จอง,W1999999,BAG,12,SOCD21001569,,,N,FIFO
+Peaberry Ltd.,RB00011,Napoli II Blend 1Kg (No Logo)-Medium Dark Roast-1 kg,PB0102,PB0102,,01/05/2021,30/04/2024,จอง,W1999999,BAG,13,SOCD21001572,,,N,FIFO
+Peaberry Ltd.,RB00011,Napoli II Blend 1Kg (No Logo)-Medium Dark Roast-1 kg,PB0110,PB0110,,01/05/2021,30/04/2024,จอง,W1999999,BAG,27,SOCD21001572,,,N,FIFO
+Peaberry Ltd.,PS00096,Monin Syrup Honey 700ml-Syrup-700 ml,230114,230114,,12/03/2021,14/01/2023,จอง,W1999999,BOT,3,SOTP21001013,PO2021050011,,N,FIFO
+Peaberry Ltd.,RB00021,Massimo Blend 250g-Dark Roast-250 g,PR24765,PR24765,,01/05/2021,30/04/2024,จอง,W1999999,BAG,25,SOTP21001005,NYW21-050273,,N,FIFO
+Peaberry Ltd.,RB00021,Massimo Blend 250g-Dark Roast-250 g,PR24872,PR24872,,01/05/2021,30/04/2024,จอง,W1999999,BAG,15,SOTP21001005,NYW21-050273,,N,FIFO
+Peaberry Ltd.,PS00121,Monin Syrup Passion Fruit 700ml-Syrup-700 ml,231016,231016,,12/03/2021,16/10/2023,จอง,W1999999,BOT,6,SOTP21001015,EFS2021/825,,N,FIFO
+Peaberry Ltd.,RB00018,House  Blend 500g (No Logo)-Medium Roast-500 g,PB0088,PB0088,,01/05/2021,30/04/2024,จอง,W1999999,BAG,20,SOCD21001569,,,N,FIFO
+Peaberry Ltd.,RB00006,P2 Blend 250g-Medium Dark Roast-250 g,PR24896,PR24896,,01/05/2021,30/04/2024,จอง,W1999999,BAG,12,SOCD21001571,web10091,,N,FIFO
+Peaberry Ltd.,PS00135,Monin Syrup Salted Caramel 700ml-Syrup-700 ml,240121,240121,,12/03/2021,21/01/2024,จอง,W1999999,BOT,18,SOTP21001013,PO2021050011,,N,FIFO
+Peaberry Ltd.,PS00106,Monin Syrup Lychee 700ml-Syrup-700 ml,240122,240122,,12/03/2021,22/01/2024,จอง,W1999999,BOT,12,SOTP21001015,EFS2021/825,,N,FIFO
+Peaberry Ltd.,PS00065,Monin Syrup Blue Curacao 700ml-Syrup-700 ml,231130,231130,,12/03/2021,30/11/2023,จอง,W1999999,BOT,9,SOTP21001013,PO2021050011,,N,FIFO
+Peaberry Ltd.,MC00090,Mahlkonig EK43 S T - White-M-Coffee Grinder-EK43 S T(Turkish),664982,664982,,01/05/2021,30/04/2024,จอง,W1999999,EA,1,SOCD21001576,,,N,FIFO
+Peaberry Ltd.,PS00028,ผงชาเขียวปั่นมัชชะNew 500g-Powder-500 g,210504,210504,,12/03/2021,04/05/2021,จอง,W1999999,BAG,12,SOCD21001575,web10078,,N,FIFO
+Peaberry Ltd.,RB00005,Napoli II Blend 250g-Medium Dark Roast-250 g,PB0110,PB0110,,01/05/2021,30/04/2024,จอง,W1999999,BAG,60,SOTP21001005,NYW21-050273,,N,FIFO
+Peaberry Ltd.,RB00005,Napoli II Blend 250g-Medium Dark Roast-250 g,PB0110,PB0110,,01/05/2021,30/04/2024,จอง,W1999999,BAG,40,SOTP21001004,NYW21-050272,,N,FIFO
+Peaberry Ltd.,PS00138,Monin Syrup Tiramisu 700ml-Syrup-700 ml,230723,230723,,12/03/2021,23/07/2023,จอง,W1999999,BOT,6,SOTP21001015,EFS2021/825,,N,FIFO
+Peaberry Ltd.,PS00122,Monin Syrup Peach 700ml-Syrup-700 ml,220902,220902,,12/03/2021,02/09/2022,จอง,W1999999,BOT,6,SOTP21001004,NYW21-050272,,N,FIFO
+Peaberry Ltd.,PS00101,Monin Syrup Lemon Rantcho 700ml-Syrup-700 ml,220608,220608,,12/03/2021,08/06/2022,จอง,W1999999,BOT,4,SOTP21001004,NYW21-050272,,N,FIFO
+Peaberry Ltd.,PS00144,Monin Syrup Vanilla 700ml-Syrup-700 ml,231217,231217,,12/03/2021,17/12/2023,จอง,W1999999,BOT,6,SOTP21001004,NYW21-050272,,N,FIFO
+Peaberry Ltd.,PS00024,ผงปั่นวนิลา 500g (No Logo)-Powder-500 g,210326,210326,,26/03/2021,25/03/2024,จอง,W1999999,BAG,40,SOCD21001565,,,N,FIFO
+Peaberry Ltd.,PS00073,Monin Syrup Caramel 700ml-Syrup-700 ml,240121,240121,,12/03/2021,21/01/2024,จอง,W1999999,BOT,6,SOTP21001013,PO2021050011,,N,FIFO
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
