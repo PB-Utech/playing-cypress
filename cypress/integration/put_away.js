@@ -1,10 +1,10 @@
 describe("PB Robot do my put away work", function () {
   it("should fill put away form for me", function () {
-    // const location = "W1-000000";
-    // const url = "https://203.150.13.78:8443/glop/#/ScanQRCode/PutAway"
+    const location = "W1999999";
+    const url = "https://203.150.13.78:8443/glop/#/ScanQRCode/PutAway";
 
-    const location = "W1000000";
-    const url = "http://localhost:8080/#/ScanQRCode/PutAway";
+    // const location = "W1000000";
+    // const url = "http://localhost:8080/#/ScanQRCode/PutAway";
     //////////////////////////////////////////
     cy.visit(url);
 
@@ -28,7 +28,9 @@ describe("PB Robot do my put away work", function () {
         const revise_qty = data[3];
         const lot_no = data[4];
         const serial_no = data[5];
-
+        const status = data[9];
+        //const status = "พร้อมใช้";
+        console.log(status);
         let qr_product = `${order_no};${product_no};${lot_no};${serial_no}{enter}`;
         console.log(data);
         console.log(qr_product);
@@ -66,6 +68,14 @@ describe("PB Robot do my put away work", function () {
         ).click();
         cy.get(".el-scrollbar > .el-select-dropdown__wrap li")
           .contains(revise_unit_desc)
+          .click();
+
+        // STATUS
+        cy.get(
+          ".card-body > .row > div:nth-child(2) > div:nth-child(5) .el-select"
+        ).click();
+        cy.get(".el-scrollbar > .el-select-dropdown__wrap li")
+          .contains(status)
           .click();
 
         //   SAVE
