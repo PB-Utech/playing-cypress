@@ -2,5 +2,8 @@
   "chromeWebSecurity": false,
   "redirectionLimit": 300,
   "defaultCommandTimeout": 10000,
-  "numTestsKeptInMemory": 20
+  "numTestsKeptInMemory": 20,
+
+  "viewportWidth": 1920,
+  "viewportHeight": 1800
 }
