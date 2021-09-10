@@ -2,48 +2,24 @@ describe("automated testing leelaella", function () {
   const url = "https://dev.leelaella.com/";
   const saleor_dev_url = "https://dashboard.dev.leelaella.com";
   const saleor_staging_url = "https://dashboard.staging.leelaella.com";
+  const subscribe_window_chrome = "pbtest@window.chrome";
+  const subscribe_MAC_Safari = "pbtest@mac.safari";
+  const subscribe_window_firefox = "pbtest@window.firefox";
 
-  it("TXR-545 Video on landing page play automatically", function () {
-    //const url = "https://dev.leelaella.com/";
-    const subscribe_window_chrome = "pbtest@window.chrome";
-    const subscribe_MAC_Safari = "pbtest@mac.safari";
-    const subscribe_window_firefox = "pbtest@window.firefox";
-    cy.visit(url);
+  // it("TXR-545 Video on landing page play automatically", function () {
+  //   //const url = "https://dev.leelaella.com/";
 
-    //TXR-545 Video on landing page play automatically
-    //cy.get("#home-video").debug();
-    //cy.wait(200);
-    //cy.get("#home-video").should(($video) => {
-    //  expect($video.get(0)).to.have.property("paused", false);
-    // });
-    //cy.pause();
+  //   cy.visit(url);
 
-    //TXR-548	User can see product color and size for each color correctly
-    //cy.get('[data-cy=product-color-blue]').should
-  });
+  //   //TXR-545 Video on landing page play automatically
+  //   //cy.get("#home-video").debug();
+  //   //cy.wait(200);
+  //   //cy.get("#home-video").should(($video) => {
+  //   //  expect($video.get(0)).to.have.property("paused", false);
+  //   // });
+  //   //cy.pause();
 
-  it("Check social media link visible", function () {
-    //IGG
-    // cy.visit(url);
-    // cy.get(".flex-row > :nth-child(1) > img").should("be.visible");
-    // cy.get(":nth-child(1) > .shadow").click();
-    // cy.url().should(
-    //   "eq",
-    //   "https://www.instagram.com/leelaandella/?utm_medium=copy_link"
-    // );
-
-    //LINE
-    cy.visit(url);
-    cy.get(".absolute > .flex-row > :nth-child(2) > img").should("be.visible");
-    cy.get(".absolute > .flex-row > :nth-child(2) > img").click();
-    cy.url().should("eq", "https://line.me/R/ti/p/@leelaandella");
-
-    //Facebook
-    cy.visit(url);
-    cy.get(".absolute > .flex-row > :nth-child(3) > img").should("be.visible");
-    cy.get(".absolute > .flex-row > :nth-child(3) > img").click();
-    cy.url().should("eq", "https://www.facebook.com/LeelaAndElla/");
-  });
+  // });
 
   //User can go to any page from the footer
   it("TXR-551 check about us", function () {
@@ -139,19 +115,6 @@ describe("automated testing leelaella", function () {
     cy.get(":nth-child(1) > .flex-col > .justify-between > span").contains(
       "THB"
     );
-  });
-
-  it("user can zoom in the product image", function () {
-    //remain checking scrool while zooming
-    cy.visit(url);
-    cy.get(".flex-row > :nth-child(5)").click();
-    cy.get("[data-cy=product-name-CATware]").click();
-    cy.get(":nth-child(1) > [data-cy=product-full-image]").click({
-      force: true,
-    });
-    cy.get("#img-zoom").click();
-    cy.get("#img-zoom").click();
-    cy.get("#img-zoom > .right-0 > .fill-current > path").click();
   });
 
   it("TXR-547 User can see product details correctly", function () {
@@ -666,5 +629,45 @@ describe("automated testing leelaella", function () {
     cy.get("[data-cy=product-name-Doll]").click();
     cy.get(".mx-1").click();
     cy.get(".flex  .h-min").should("be.visible");
+  });
+
+  it("	TXR-755	Line icon redirect to Leela&ella page on Line", function () {
+    //LINE
+    cy.visit(url);
+    cy.get(".absolute > .flex-row > :nth-child(2) > img").should("be.visible");
+    cy.get(".absolute > .flex-row > :nth-child(2) > img").click();
+    cy.url().should("eq", "https://line.me/R/ti/p/@leelaandella");
+  });
+
+  it("	TXR-754	Facebook icon redirect to Leela&ella page on facebook", function () {
+    //Facebook
+    cy.visit(url);
+    cy.get(".absolute > .flex-row > :nth-child(3) > img").should("be.visible");
+    cy.get(".absolute > .flex-row > :nth-child(3) > img").click();
+    cy.url().should("eq", "https://www.facebook.com/LeelaAndElla/");
+  });
+
+  it("	TXR-753	Instagram icon redirect to Leela&ella page on instagram", function () {
+    //IG
+    // cy.visit(url);
+    // cy.get(".flex-row > :nth-child(1) > img").should("be.visible");
+    // cy.get(":nth-child(1) > .shadow").click();
+    // cy.url().should(
+    //   "eq",
+    //   "https://www.instagram.com/leelaandella/?utm_medium=copy_link"
+    // );
+  });
+
+  it("	TXR-729	User can zoom in at the product image on the product detail page", function () {
+    //remain checking scrool while zooming
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get("[data-cy=product-name-CATware]").click();
+    cy.get(":nth-child(1) > [data-cy=product-full-image]").click({
+      force: true,
+    });
+    cy.get("#img-zoom").click();
+    cy.get("#img-zoom").click();
+    cy.get("#img-zoom > .right-0 > .fill-current > path").click();
   });
 });
