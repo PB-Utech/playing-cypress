@@ -433,6 +433,78 @@ describe("automated testing leelaella", function () {
     ).should("have.text", "1");
   });
 
+  it("TXR-525	When user click JEWELRY category on homepage it will redirect user to product list with JEWERLY category filter applied", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(7)").click();
+    cy.get(".flex-row-reverse > :nth-child(2)").should("contain", "RING");
+    cy.get(".flex-row-reverse > :nth-child(3)").should("contain", "NECKLACE");
+    cy.get(".flex-row-reverse > :nth-child(4)").should("contain", "BRACELET");
+    cy.get(".flex-row-reverse > :nth-child(5)").should("contain", "EARRINGS");
+
+    //check visible
+    cy.get(".flex-row-reverse > :nth-child(2)").should("be.visible");
+    cy.get(".flex-row-reverse > :nth-child(3)").should("be.visible");
+    cy.get(".flex-row-reverse > :nth-child(4)").should("be.visible");
+    cy.get(".flex-row-reverse > :nth-child(5)").should("be.visible");
+  });
+
+  it("TXR-524	When user click EXTRA category on homepage it will redirect user to product list with EXTRA category filter applied", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(6)").click();
+    cy.get(".flex-row-reverse > :nth-child(2)").should("contain", "COVER UP");
+    cy.get(".flex-row-reverse > :nth-child(3)").should("contain", "BLAZER");
+    cy.get(".flex-row-reverse > :nth-child(4)").should("contain", "PANTS");
+    cy.get(".flex-row-reverse > :nth-child(5)").should("contain", "SKIRT");
+    cy.get(".flex-row-reverse > :nth-child(6)").should("contain", "DRESS");
+
+    //check visible
+    cy.get(".flex-row-reverse > :nth-child(2)").should("be.visible");
+    cy.get(".flex-row-reverse > :nth-child(3)").should("be.visible");
+    cy.get(".flex-row-reverse > :nth-child(4)").should("be.visible");
+    cy.get(".flex-row-reverse > :nth-child(5)").should("be.visible");
+    cy.get(".flex-row-reverse > :nth-child(6)").should("be.visible");
+  });
+
+  it("TXR-523	When user click LINGERIE category on homepage it will redirect user to product list with EXTRA category filter applied", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get(".text-c").should("contain", "LINGERIE");
+
+    //check visible
+    cy.get(".text-c").should("be.visible");
+  });
+
+  it("TXR-522	When user click ONEPIECES category on homepage it will redirect user to product list with EXTRA category filter applied", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(4)").click();
+    cy.get(".flex-row-reverse > :nth-child(2)").should("contain", "ONEPIECE");
+
+    //check visible
+    cy.get(".flex-row-reverse > :nth-child(2)").should("be.visible");
+  });
+
+  it("TXR-521	When user click BIKINI BOTTOM category on homepage it will redirect user to product list with EXTRA category filter applied", function () {
+    cy.visit(url);
+    cy.get(
+      ".w-full.flex-col > :nth-child(3) > .flex-row > :nth-child(3)"
+    ).click();
+    cy.get(".flex-row-reverse > :nth-child(2)").should("contain", "BOTTOM");
+
+    //check visible
+    cy.get(".flex-row-reverse > :nth-child(2)").should("be.visible");
+  });
+
+  it("TXR-520	When user click BIKINI TOP category on homepage it will redirect user to product list with EXTRA category filter applied", function () {
+    cy.visit(url);
+    cy.get(
+      ".w-full.flex-col > :nth-child(3) > .flex-row > :nth-child(2)"
+    ).click();
+    cy.get(".flex-row-reverse > :nth-child(2)").should("contain", "TOP");
+
+    //check visible
+    cy.get(".flex-row-reverse > :nth-child(2)").should("be.visible");
+  });
+
   it("TXR-602	User can view size guide for ONEPIECE category", function () {
     cy.visit(url);
     cy.get(".flex-row > :nth-child(5)").click();
