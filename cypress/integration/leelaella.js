@@ -120,7 +120,11 @@ describe("automated testing leelaella", function () {
     cy.get("[data-cy=homepage-icon] > .fill-current > path").click({
       force: true,
     });
-    cy.get(":nth-child(3) > .flex-row > :nth-child(2)").click();
+
+    cy.get(
+      ".w-full.flex-col > :nth-child(3) > .flex-row > :nth-child(2)"
+    ).click();
+
     cy.get(
       ":nth-child(1) > .flex-col > .justify-between > :nth-child(1) > :nth-child(1)"
     ).contains("USD");
@@ -151,8 +155,6 @@ describe("automated testing leelaella", function () {
   });
 
   it("TXR-547 User can see product details correctly", function () {
-    //const url = "https://dev.leelaella.com/";
-    //const saleor_dev_url = "https://dashboard.dev.leelaella.com";
     cy.visit(url);
     //Get product details
     cy.get(".flex-row > :nth-child(5)").click();
@@ -175,7 +177,8 @@ describe("automated testing leelaella", function () {
       });
       cy.get('[href="/dashboard/products?"] > .MuiTypography-root').click();
       cy.wait(5000);
-      cy.get(".MuiTable-root tbody tr:nth-child(1) ").click();
+
+      cy.get(".MuiTable-root tbody tr:nth-child(2) ").click();
 
       cy.wait(5000);
       cy.get("form .MuiTypography-root.MuiTypography-h5")
@@ -211,7 +214,7 @@ describe("automated testing leelaella", function () {
       });
       cy.get('[href="/dashboard/products?"] > .MuiTypography-root').click();
       cy.wait(5000);
-      cy.get(".MuiTable-root tbody tr:nth-child(1) ").click();
+      cy.get(".MuiTable-root tbody tr:nth-child(2) ").click();
 
       cy.wait(5000);
       cy.get(
@@ -222,17 +225,49 @@ describe("automated testing leelaella", function () {
     });
 
     //------CHECK PRODUCT PRICE
-  });
-
-  it("TXR-507 User can add product to cart", function () {
     cy.visit(url);
     cy.get(".flex-row > :nth-child(5)").click();
     cy.get("[data-cy=product-name-CATware]").click();
-    cy.get(".mb-8 > .bg-crail-200").should("contain", "ADD TO CART").click();
-    cy.get(".text-gray-700 > .border").should("contain", "1");
-    //try to add more same product to cart by clicking + and check
-    cy.get(".border-r").click();
-    cy.get(".text-gray-700 > .border").should("contain", "2");
+    cy.wait(4000);
+
+    //select color and size
+    cy.get("[data-cy=product-color-green]").click();
+    cy.get("[data-cy=product-size4-button]").click();
+
+    cy.get("[data-cy=product-price]")
+      .invoke("text")
+      .then(($product_price) => {
+        let res = $product_price.replace(/,/g, "");
+        let res2 = res.replace(/ /g, "");
+        let res3 = res2.replace(/THB/g, "");
+
+        //access to saleor web
+        cy.visit(saleor_dev_url);
+
+        //--- When we have to log in on Saleor
+        // cy.get("[data-test=email]").type("admin@example.com");
+        // cy.get("[data-test=password]").type("admin");
+        // cy.get("[data-test=submit]").click();
+
+        cy.get(".MuiPaper-root div:nth-child(3) div:nth-child(2) span ").click({
+          force: true,
+        });
+        cy.get('[href="/dashboard/products?"] > .MuiTypography-root').click();
+        cy.wait(5000);
+        cy.get(".MuiTable-root tbody tr:nth-child(2) ").click();
+
+        cy.wait(5000);
+
+        //select each item to check each price
+        cy.get(":nth-child(4) > [data-test=name]").click();
+        cy.get(".jss600 > .MuiTypography-root").should("contain", "Green");
+        cy.get(".jss600 > .MuiTypography-root").should("contain", "4");
+
+        //get price
+        cy.get(
+          ".jss1157 > :nth-child(1) > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input"
+        ).should("have.value", res3);
+      });
   });
 
   it("TXR-549	User can click on each product previews to see full product image", function () {
@@ -253,6 +288,61 @@ describe("automated testing leelaella", function () {
       "https://saleor.dev.leelaella.com/media/products/file-20200803-24-50u91u.jpg"
     );
   });
+  it("TXR-529	Users can choose the color according to the product. (blue, pink,..)", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get("[data-cy=product-name-CATware]").click();
+    cy.get("[data-cy=product-color-blue]").click();
+    cy.get(".mb-8 > .bg-crail-200").should("contain", "ADD TO CART").click();
+    cy.get(".rounded-sm").should("include.text", "Blue");
+    cy.get("[data-cy=cart-panel]").click();
+    cy.get("[data-cy=product-color-green]").click();
+    cy.get(".mb-8 > .bg-crail-200").should("contain", "ADD TO CART").click();
+    cy.get(":nth-child(2) > .flex.p-4 > .pl-4 > .rounded-sm").should(
+      "include.text",
+      "Green"
+    );
+  });
+
+  it("TXR-548	User can see product color and size for each color correctly", function () {
+    const url = "https://dev.leelaella.com/";
+    const saleor_dev_url = "https://dashboard.dev.leelaella.com";
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get("[data-cy=product-name-CATware]").click();
+    cy.wait(4000);
+
+    //select color and size
+    cy.get("[data-cy=product-color-green]").click();
+    cy.get("[data-cy=product-size4-button]").click();
+
+    cy.get("[data-cy=product-full-image]")
+      .eq(1)
+      .invoke("attr", "src")
+      .then(($src) => {
+        //access to saleor web
+        cy.visit(saleor_dev_url);
+
+        //--- When we have to log in on Saleor
+        // cy.get("[data-test=email]").type("admin@example.com");
+        // cy.get("[data-test=password]").type("admin");
+        // cy.get("[data-test=submit]").click();
+
+        cy.get(".MuiPaper-root div:nth-child(3) div:nth-child(2) span ").click({
+          force: true,
+        });
+        cy.get('[href="/dashboard/products?"] > .MuiTypography-root').click();
+        cy.wait(5000);
+        cy.get(".MuiTable-root tbody tr:nth-child(2) ").click();
+
+        // cy.wait(5000);
+        cy.get(" [data-test=product-image]:nth-child(2) img").should(
+          "have.attr",
+          "src",
+          $src
+        );
+      });
+  });
 
   it("TXR-731	User can go to previous page by 'Go Back' button", function () {
     cy.visit(url);
@@ -263,6 +353,39 @@ describe("automated testing leelaella", function () {
       "contain",
       "https://dev.leelaella.com/product-list/?&category=Q2F0ZWdvcnk6OA=="
     );
+  });
+
+  it("TXR-507 User can add product to cart", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get("[data-cy=product-name-CATware]").click();
+    cy.get(".mb-8 > .bg-crail-200").should("contain", "ADD TO CART").click();
+    cy.get(".text-gray-700 > .border").should("contain", "1");
+    //try to add more same product to cart by clicking + and check
+    cy.get(".border-r").click();
+    cy.get(".text-gray-700 > .border").should("contain", "2");
+  });
+
+  it("TXR-548	User can see product color and size for each color correctly", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get("[data-cy=product-name-CATware]").click();
+    cy.get(".mb-8 > .bg-crail-200").should("contain", "ADD TO CART").click();
+    cy.get(".text-gray-700 > .border").should("contain", "1");
+    cy.get(".rounded-sm").should("contain", "Blue");
+    cy.get(".rounded-sm").should("contain", "4.5");
+    cy.get(".rounded-sm").click();
+    cy.get(".flex.p-4 > .z-20 > :nth-child(1)").should("contain", "Blue");
+    cy.get(".mt-5 > .ring-turkish-rose-600").should("contain", "4.5");
+    cy.get(
+      '.my-1 > [style="background: linear-gradient(90deg, green 50%, green 50%);"]'
+    ).click();
+    cy.get(".flex.p-4 > .z-20 > :nth-child(1)").should("contain", "Green");
+    cy.get(".ring-crail-200").contains("4").click();
+    cy.get(".ring-crail-200").should("contain", "4");
+    cy.get(".z-20 > .bg-crail-200").contains("CONFIRM").click();
+    cy.get(".rounded-sm").should("contain", "Green");
+    cy.get(".rounded-sm").should("contain", "4");
   });
 
   it("	TXR-509	User can't confirm items in the cart when item out of stock", function () {
@@ -308,21 +431,5 @@ describe("automated testing leelaella", function () {
     cy.get(
       ":nth-child(2) > .flex.p-4 > .pl-4 > .h-full > :nth-child(1) > .justify-start > .text-gray-700 > .border"
     ).should("have.text", "1");
-  });
-
-  it("TXR-529	Users can choose the color according to the product. (blue, pink,..)", function () {
-    cy.visit(url);
-    cy.get(".flex-row > :nth-child(5)").click();
-    cy.get("[data-cy=product-name-CATware]").click();
-    cy.get("[data-cy=product-color-blue]").click();
-    cy.get(".mb-8 > .bg-crail-200").should("contain", "ADD TO CART").click();
-    cy.get(".rounded-sm").should("include.text", "Blue");
-    cy.get("[data-cy=cart-panel]").click();
-    cy.get("[data-cy=product-color-green]").click();
-    cy.get(".mb-8 > .bg-crail-200").should("contain", "ADD TO CART").click();
-    cy.get(":nth-child(2) > .flex.p-4 > .pl-4 > .rounded-sm").should(
-      "include.text",
-      "Green"
-    );
   });
 });
