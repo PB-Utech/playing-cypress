@@ -432,4 +432,167 @@ describe("automated testing leelaella", function () {
       ":nth-child(2) > .flex.p-4 > .pl-4 > .h-full > :nth-child(1) > .justify-start > .text-gray-700 > .border"
     ).should("have.text", "1");
   });
+
+  it("TXR-602	User can view size guide for ONEPIECE category", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+    cy.get(".h-3 > .fill-current > path").click({ force: true });
+    cy.get(".absolute > :nth-child(3) > span").contains("OnePiece").click();
+    cy.get(".absolute > .p-2").contains("APPLY").click();
+    cy.get("[data-cy=product-name-Freesia]").click();
+    cy.get(".mx-1").click();
+    cy.get(".flex  .h-min").should("be.visible");
+  });
+
+  // +++++++++ Due to not found earring in dev environment
+  // it("TXR-614	User can view size guide for EARRING category", function () {
+  //   cy.visit(url);
+  //   cy.get(".flex-row > :nth-child(5)").click();
+  //   cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+  //   cy.get(".h-3 > .fill-current > path").click({ force: true });
+  //   cy.get(".absolute > :nth-child(9) > span").contains("Earrings").click();
+  //   cy.get(".absolute > .p-2").contains("APPLY").click();
+  //   //----------cy.get("[data-cy=product-name-Freesia]").click();
+  //   cy.get(".mx-1").click();
+  //   cy.get(".flex  .h-min").should("be.visible");
+  // });
+
+  it("TXR-613	User can view size guide for BIKINI TOP category", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+    cy.get(".h-3 > .fill-current > path").click({ force: true });
+    cy.get(".absolute > :nth-child(10) > span").contains("Dress").click();
+    cy.get(".absolute > .p-2").contains("APPLY").click();
+    cy.get("[data-cy=product-name-asdasd]").click();
+    cy.get(".mx-1").click();
+    cy.get(".flex  .h-min").should("be.visible");
+  });
+
+  it("TXR-612	User can view size guide for SKIRT category", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+    cy.get(".h-3 > .fill-current > path").click({ force: true });
+    cy.get(".absolute > :nth-child(11) > span").contains("skirt").click();
+    cy.get(".absolute > .p-2").contains("APPLY").click();
+    cy.get("[data-cy=product-name-Iossafari]").click();
+    cy.get(".mx-1").click();
+    cy.get(".flex  .h-min").should("be.visible");
+  });
+
+  // +++++++++ Due to not found COVER Up in dev environment
+  // it("TXR-609	User can view size guide for COVER UP category", function () {
+  //   cy.visit(url);
+  //   cy.get(".flex-row > :nth-child(5)").click();
+  //   cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+  //   cy.get(".h-3 > .fill-current > path").click({ force: true });
+  //   cy.get(".absolute > :nth-child(7) > span").contains("Cover Up").click();
+  //   cy.get(".absolute > .p-2").contains("APPLY").click();
+  //   //------ cy.get("[data-cy=product-name-Iossafari]").click();
+  //   cy.get(".mx-1").click();
+  //   cy.get(".flex  .h-min").should("be.visible");
+  // });
+
+  it("TXR-611	User can view size guide for PANTS category", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+    cy.get(".h-3 > .fill-current > path").click({ force: true });
+    cy.get(".absolute > :nth-child(12) > span").contains("Pants").click();
+    cy.get(".absolute > .p-2").contains("APPLY").click();
+    cy.get("[data-cy=product-name-harry]").click();
+    cy.get(".mx-1").click();
+    cy.get(".flex  .h-min").should("be.visible");
+  });
+
+  // +++++++++ Due to not found NECKLACE in dev environment
+  // it("TXR-608	User can view size guide for NECKLACE category", function () {
+  //   cy.visit(url);
+  //   cy.get(".flex-row > :nth-child(5)").click();
+  //   cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+  //   cy.get(".h-3 > .fill-current > path").click({ force: true });
+  //   cy.get(".absolute > :nth-child(6) > span").contains("Necklace").click();
+  //   cy.get(".absolute > .p-2").contains("APPLY").click();
+  //   //------ cy.get("[data-cy=product-name-Iossafari]").click();
+  //   cy.get(".mx-1").click();
+  //   cy.get(".flex  .h-min").should("be.visible");
+  // });
+
+  it("TXR-610	User can view size guide for BLAZER category", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+    cy.get(".h-3 > .fill-current > path").click({ force: true });
+    cy.get(".absolute > :nth-child(13) > span").contains("blazer").click();
+    cy.get(".absolute > .p-2").contains("APPLY").click();
+    cy.get("[data-cy=product-name-Test01]").click();
+    cy.get(".mx-1").click();
+    cy.get(".flex  .h-min").should("be.visible");
+  });
+
+  it("TXR-606	User can view size guide for RING category", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+    cy.get(".h-3 > .fill-current > path").click({ force: true });
+    cy.get(".absolute > :nth-child(4) > span").contains("Ring").click();
+    cy.get(".absolute > .p-2").contains("APPLY").click();
+
+    cy.get(
+      "body > div > div:nth-child(3)  >div:nth-child(2) >div:nth-child(2) >div:nth-child(2) img"
+    ).click();
+    cy.get(".mx-1").click();
+    cy.get(".flex  .h-min").should("be.visible");
+  });
+
+  it("TXR-604	User can view size guide for BIKINI BOTTOM category", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+    cy.get(".h-3 > .fill-current > path").click({ force: true });
+    cy.get(".absolute > :nth-child(2) > span").contains("Bottom").click();
+    cy.get(".absolute > .p-2").contains("APPLY").click();
+    cy.get("[data-cy=product-name-Suzanne]").click();
+    cy.get(".mx-1").click();
+    cy.get(".flex  .h-min").should("be.visible");
+  });
+
+  // +++++++++ Due to not found BRACELET  in dev environment
+  // it("TXR-607	User can view size guide for BRACELET category", function () {
+  //   cy.visit(url);
+  //   cy.get(".flex-row > :nth-child(5)").click();
+  //   cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+  //   cy.get(".h-3 > .fill-current > path").click({ force: true });
+  //   cy.get(".absolute > :nth-child(5) > span").contains("Bracelet").click();
+  //   cy.get(".absolute > .p-2").contains("APPLY").click();
+  //   //------ cy.get("[data-cy=product-name-Iossafari]").click();
+  //   cy.get(".mx-1").click();
+  //   cy.get(".flex  .h-min").should("be.visible");
+  // });
+
+  it("TXR-605	User can view size guide for LINGERIE category", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+    cy.get(".h-3 > .fill-current > path").click({ force: true });
+    cy.get(".absolute > :nth-child(8) > span").contains("lingerie").click();
+    cy.get(".absolute > .p-2").contains("APPLY").click();
+    cy.get("[data-cy=product-name-CATware]").click();
+    cy.get(".mx-1").click();
+    cy.get(".flex  .h-min").should("be.visible");
+  });
+
+  it("TXR-603	User can view size guide for BIKINI TOP category", function () {
+    cy.visit(url);
+    cy.get(".flex-row > :nth-child(5)").click();
+    cy.get(".bg-gray-100 > .whitespace-nowrap").click();
+    cy.get(".h-3 > .fill-current > path").click({ force: true });
+    cy.get(".absolute > :nth-child(1) > span").contains("Top").click();
+    cy.get(".absolute > .p-2").contains("APPLY").click();
+    cy.get("[data-cy=product-name-Doll]").click();
+    cy.get(".mx-1").click();
+    cy.get(".flex  .h-min").should("be.visible");
+  });
 });
