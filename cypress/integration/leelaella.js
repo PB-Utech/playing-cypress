@@ -366,7 +366,7 @@ describe("automated testing leelaella", function () {
     cy.get(".text-gray-700 > .border").should("contain", "2");
   });
 
-  it("TXR-548	User can see product color and size for each color correctly", function () {
+  it("TXR-508	User can see product color and size for each color correctly", function () {
     cy.visit(url);
     cy.get(".flex-row > :nth-child(5)").click();
     cy.get("[data-cy=product-name-CATware]").click();
